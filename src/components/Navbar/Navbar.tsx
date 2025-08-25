@@ -7,14 +7,14 @@ const Navbar = () => {
     const [visible, setvisible] = useState(false)
   return (
     <div className='flex items-center justify-between py-5 font-medium' >
-       <img src={Logo} alt='Wear' className='w-36' />
+       <NavLink  to="/" ><img src={Logo} alt='Wear' className='w-36' /></NavLink>
        <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
         <NavLink to="/" className="flex flex-col items-center gap-1" >
         <p>Home</p>
         <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden ' />
         </NavLink>
         <NavLink to="/collection" className="flex flex-col items-center gap-1" >
-        <p>Colletion</p>
+        <p>Collection</p>
         <hr className='w-2/4 border-none h-[1.5px] bg-gray-700  hidden' />
         </NavLink>
         <NavLink to="/about" className="flex flex-col items-center gap-1" >
@@ -51,7 +51,7 @@ const Navbar = () => {
                   <ChevronDown className="h-4 rotate-90 mt-[3px]"/>
                   <p>Back</p>
                 </div>
-                <NavLink onClick={()=>setvisible(false)}  className="py-2 pl-6 border-b" to="/home" >Home</NavLink>
+                <NavLink onClick={()=>setvisible(false)}  className="py-2 pl-6 border-b" to="/" >Home</NavLink>
                 <NavLink  onClick={()=>setvisible(false)} className="py-2 pl-6 border-b" to="/collection" >Collection</NavLink>
                 <NavLink onClick={()=>setvisible(false)}  className="py-2 pl-6 border-b" to="/about" >About</NavLink>
                 <NavLink onClick={()=>setvisible(false)}  className="py-2 pl-6 " to="/contact" >Contact</NavLink>
