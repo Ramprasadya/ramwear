@@ -24,7 +24,7 @@ const Collection = () => {
   }, []);
 
   useEffect(() => {
-    console.log(category);
+    // console.log(category);
   }, [category]);
 
   return (
