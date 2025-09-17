@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { ShopContext } from "../context/ShopContext"
 import Title from "../UiComponents/Title";
 import { Trash2 } from "lucide-react";
+import CartTotal from "../UiComponents/CartTotal";
 
 
 const Cart = () => {
@@ -54,6 +55,12 @@ const Cart = () => {
               )
             })
           }
+       </div>
+       <div className="flex justify-end my-20" >
+        <div className="w-full sm:w-[450px]" >
+          <CartTotal/>
+        </div>
+
        </div>
     </div>
   )

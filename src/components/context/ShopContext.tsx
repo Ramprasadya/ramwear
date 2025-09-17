@@ -53,6 +53,26 @@ const ShopContextProvider =(props:any)=>{
        setCartItems(cartData)
     }
 
+    const getCartAmmount=()=>{
+        let totalAmmount =0;
+        for(const items in cartItems){
+            let itemInfo = products.find((product)=> product._id === items);
+            if(!itemInfo){
+                console.log("Item info not found ");
+            }
+            for(const item in cartItems[items]){
+                try {
+                    if(cartItems[items][item] > 0){
+                        totalAmmount += (itemInfo?.price ?? 0) * cartItems[items][item]
+                    }
+                } catch (error) {
+                    
+                }
+            }
+        }
+        return totalAmmount;
+    }
+
     useEffect(()=>{
         // console.log(cartItems);     
     },[cartItems])
@@ -69,7 +89,8 @@ const ShopContextProvider =(props:any)=>{
        addToCart,
        getCartCount,
        cartItems,
-       updateQuantity
+       updateQuantity,
+       getCartAmmount
     }
     return (
         <ShopContext.Provider value={value}>
