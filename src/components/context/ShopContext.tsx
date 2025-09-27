@@ -29,6 +29,9 @@ const ShopContextProvider = (props: any) => {
   const navigate = useNavigate();
   const [products, setProducts] = useState<Product[]>([])
 
+  // Auth 
+  const [token, setToken] = useState<string>('')
+
     const getProductsData =async()=>{
      try {
         const response = await axios.get(`${Server_Url}/product/list`)
@@ -115,6 +118,13 @@ const ShopContextProvider = (props: any) => {
   };
 
 
+  useEffect(()=>{
+    let localStorageToken = localStorage.getItem('token') 
+    if(!token && localStorageToken){
+      setToken(localStorageToken)
+    }
+  },[token])
+
 
   // const products = "https://i.pinimg.com/736x/94/91/e6/9491e625120235b4c7b196d4f8b4e75e.jpg"
   const value = {
@@ -131,6 +141,8 @@ const ShopContextProvider = (props: any) => {
     updateQuantity,
     getCartAmmount,
     navigate,
+    setToken,
+    token
   };
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
