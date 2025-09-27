@@ -1,8 +1,24 @@
 import { createContext, useEffect, useState } from "react";
-import { products } from "../assets/frontend_assets/assets";
+// import { products } from "../assets/frontend_assets/assets";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { Server_Url } from "@/config";
 export const ShopContext = createContext<any>(null);
+
+interface Product {
+  _id: string;
+  name: string;
+  price: number;
+  image: string[];
+  category: string;
+  subCategory: string;
+  sizes: string[];
+  bestseller: boolean;
+  date: number;
+  __v: number;
+}
+
 
 const ShopContextProvider = (props: any) => {
   const currency = "$";
@@ -11,6 +27,25 @@ const ShopContextProvider = (props: any) => {
   const [showSearch, setShowSearch] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState<any>({});
   const navigate = useNavigate();
+  const [products, setProducts] = useState<Product[]>([])
+
+    const getProductsData =async()=>{
+     try {
+        const response = await axios.get(`${Server_Url}/product/list`)
+        if(response.data.success){
+          // console.log(response.data.products);  
+          setProducts(response.data?.products)
+        }else{
+          toast.error(response.data.message)
+        }
+     } catch (error) {
+       console.log(error);
+     }
+  }
+
+  useEffect(() => {
+    getProductsData()
+  }, []);
 
   const addToCart = async (itemId: any, size: any) => {
     if (!size) {
@@ -60,26 +95,26 @@ const ShopContextProvider = (props: any) => {
   };
 
   const getCartAmmount = () => {
-    let totalAmmount = 0;
+    let totalAmount = 0;
     for (const items in cartItems) {
       let itemInfo = products.find((product) => product._id === items);
+      console.log(itemInfo);
+      
       if (!itemInfo) {
         console.log("Item info not found ");
       }
       for (const item in cartItems[items]) {
         try {
           if (cartItems[items][item] > 0) {
-            totalAmmount += (itemInfo?.price ?? 0) * cartItems[items][item];
+            totalAmount += (itemInfo?.price?? 0) * cartItems[items][item];
           }
         } catch (error) {}
       }
     }
-    return totalAmmount;
+    return totalAmount;
   };
 
-  useEffect(() => {
-    // console.log(cartItems);
-  }, [cartItems]);
+
 
   // const products = "https://i.pinimg.com/736x/94/91/e6/9491e625120235b4c7b196d4f8b4e75e.jpg"
   const value = {
