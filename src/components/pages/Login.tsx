@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 
 
 const Login = () => {
-  const [currentState, setCurrentState] = useState<any>('Sign Up')
+  const [currentState, setCurrentState] = useState<any>('Login')
   const { token, setToken } = useContext(ShopContext)
 
   const navigate = useNavigate()
