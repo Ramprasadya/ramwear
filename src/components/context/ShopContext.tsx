@@ -132,7 +132,7 @@ const ShopContextProvider = (props: any) => {
     let totalAmount = 0;
     for (const items in cartItems) {
       let itemInfo = products.find((product) => product._id === items);
-      console.log(itemInfo);
+      
       
       if (!itemInfo) {
         console.log("Item info not found ");
@@ -170,11 +170,13 @@ const ShopContextProvider = (props: any) => {
     addToCart,
     getCartCount,
     cartItems,
+    setCartItems,
     updateQuantity,
     getCartAmmount,
     navigate,
     setToken,
-    token
+    token,
+
   };
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>
