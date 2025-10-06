@@ -46,6 +46,37 @@ const PlaceOrder = () => {
     }));
   };
 
+  const initPay=(order: { amount: any; currency: any; id: any; reciept: any })=>{
+      const option:any  = {
+        key :"rzp_test_RQ54N1S82MciA4",
+        amount : order.amount,
+        currency: order.currency,
+        name:"Order Payemt",
+        description : "Order Payemt",
+        order_id : order.id,
+        receipt: order.reciept,
+        handler : async (response: any)=>{
+          console.log(response)
+          try {
+            const {data}= await axios.post(`${Server_Url}/order/verifyRazorpay`, response, {headers:{token}})
+            if(data.success){
+              navigate("/orders")
+              setCartItems({})
+
+            }else{
+              toast.error(data.message)
+            }
+          } catch (error) {
+            console.log(error)
+          }
+        }
+
+      }
+const rzp = new (window as any).Razorpay(option);
+rzp.open();
+
+  }
+
   const onSubmitHandler = async(e:any)=>{
     e.preventDefault();
     try {
@@ -92,6 +123,16 @@ const PlaceOrder = () => {
               toast.error(responseStripe.data.message)
             }
            break;
+
+           case 'razorpay':
+            console.log("razor pay")
+            const responseRazorpay = await axios.post(`${Server_Url}/order/razorpay`, orderData, {headers:{token}})
+            console.log(responseRazorpay)
+            if(responseRazorpay.data.success){
+               console.log(responseRazorpay.data.order)
+               initPay(responseRazorpay.data.order)
+            }
+            break;
         default:
           break;
       }
@@ -135,10 +176,10 @@ const PlaceOrder = () => {
           <Title text1="Payment" text2="Method" />
           {/* ----------- Payment method Selection */}
           <div className="flex gap-3 flex-col lg:flex-row" >
-            <div onClick={() => setmMthod('stripe')} className="flex items-center gap-3 border p-2 px-3 cursor-pointer" >
+            {/* <div onClick={() => setmMthod('stripe')} className="flex items-center gap-3 border p-2 px-3 cursor-pointer" >
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'stripe' ? 'bg-green-400' : ''} `} ></p>
               <img className="h-5 mx-4" src={assets.stripe_logo} alt="stripe" />
-            </div>
+            </div> */}
             <div onClick={() => setmMthod('razorpay')} className="flex items-center gap-3 border p-2 px-3 cursor-pointer" >
               <p className={`min-w-3.5 h-3.5 border rounded-full ${method === 'razorpay' ? 'bg-green-400' : ''} `} ></p>
               <img className="h-5 mx-4" src={assets.razorpay_logo} alt="stripe" />
