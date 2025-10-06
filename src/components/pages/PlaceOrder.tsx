@@ -4,7 +4,7 @@ import CartTotal from "../UiComponents/CartTotal"
 import Title from "../UiComponents/Title"
 import { ShopContext } from "../context/ShopContext"
 import axios from "axios"
-import { Server_Url } from "@/config"
+import { Razorpay_key, Server_Url } from "@/config"
 import { toast } from "react-toastify"
 
 
@@ -48,7 +48,7 @@ const PlaceOrder = () => {
 
   const initPay=(order: { amount: any; currency: any; id: any; reciept: any })=>{
       const option:any  = {
-        key :"rzp_test_RQ54N1S82MciA4",
+        key : Razorpay_key,
         amount : order.amount,
         currency: order.currency,
         name:"Order Payemt",
