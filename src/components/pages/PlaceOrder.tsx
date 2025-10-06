@@ -125,12 +125,14 @@ rzp.open();
            break;
 
            case 'razorpay':
-            console.log("razor pay")
+            // console.log("razor pay")
             const responseRazorpay = await axios.post(`${Server_Url}/order/razorpay`, orderData, {headers:{token}})
-            console.log(responseRazorpay)
+            // console.log(responseRazorpay)
             if(responseRazorpay.data.success){
                console.log(responseRazorpay.data.order)
                initPay(responseRazorpay.data.order)
+            }else{
+              toast.error(responseRazorpay.data.message)
             }
             break;
         default:
