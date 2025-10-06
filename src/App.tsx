@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar/Navbar"
 import Footer from "./components/Footer/Footer"
 import SearchBar from "./components/UiComponents/SearchBar"
 import { ToastContainer } from "react-toastify"
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         </Routes>
         <Footer />
      </div>
+     <Analytics/>
     </>
   )
 }
