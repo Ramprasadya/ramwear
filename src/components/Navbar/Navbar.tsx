@@ -43,7 +43,7 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-6">
         <SearchIcon onClick={() => setShowSearch(true)} className="w-5 cursor-pointer" />
-        <div className="group relative">
+        <div className="group relative hidden sm:block ">
           {
             token ? (
 
@@ -82,11 +82,23 @@ const Navbar = () => {
           <NavLink onClick={() => setvisible(false)} className="py-2 pl-6 border-b" to="/" >Home</NavLink>
           <NavLink onClick={() => setvisible(false)} className="py-2 pl-6 border-b" to="/collection" >Collection</NavLink>
           <NavLink onClick={() => setvisible(false)} className="py-2 pl-6 border-b" to="/about" >About</NavLink>
-          <NavLink onClick={() => setvisible(false)} className="py-2 pl-6 " to="/contact" >Contact</NavLink>
+          <NavLink onClick={() => setvisible(false)} className="py-2 pl-6 border-b" to="/contact" >Contact</NavLink>
            <NavLink onClick={() => setvisible(false)}  className="py-2 pl-6 " to="/orders" >Orders</NavLink>
-         <div className="w-full flex justify-center relative" >
-          <button onClick={Logout} className=" absolute top-[150px] cursor-pointer py-2 px-4 bg-black text-white w-[80%] " >Logout</button>
+         {token ? (
+          <div className="w-full flex justify-center relative" >
+          <button onClick={()=>{
+            Logout()
+            setvisible(false)
+          }} className=" absolute top-[150px] cursor-pointer py-2 px-4 bg-black text-white w-[80%] " >Logout</button>
           </div> 
+         ):(
+          <div className="w-full flex justify-center relative" >
+          <button onClick={()=>{
+            navigate("/login")
+            setvisible(false)
+            }} className=" absolute top-[150px] cursor-pointer py-2 px-4 bg-black text-white w-[80%] " >Login</button>
+          </div> 
+         )}
           {/* <NavLink className="py-2 pl-6 border" to="/home" > Home</NavLink> */}
         </div>
       </div>

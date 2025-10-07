@@ -21,7 +21,7 @@ interface Product {
 
 
 const ShopContextProvider = (props: any) => {
-  const currency = "₹";
+  const currency = "₹ ";
   const deliveryFee = 10;
   const [search, setSearch] = useState<string>("");
   const [showSearch, setShowSearch] = useState<boolean>(false);
