@@ -13,6 +13,7 @@ import Footer from "./components/Footer/Footer"
 import SearchBar from "./components/UiComponents/SearchBar"
 import { ToastContainer } from "react-toastify"
 import { Analytics } from "@vercel/analytics/react";
+import Profile from "./components/pages/Profile"
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/login" element={<Login/>} />
           <Route path="/placeOrder" element={<PlaceOrder/>} />
           <Route path="/orders" element={<Orders/>} />
+           <Route path="/profile" element={<Profile/>} />
         </Routes>
         <Footer />
      </div>

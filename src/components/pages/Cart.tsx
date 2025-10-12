@@ -34,6 +34,7 @@ const Cart = () => {
     <div className="border-t pt-14" >
        <div className="text-2xl mb-3" >
         <Title text1="Your" text2="Cart"  />
+        {cartData.length <= 0 && <p className="text-center my-10" >Your Cart is Empty</p>}
        </div>
        <div className="" >
           {

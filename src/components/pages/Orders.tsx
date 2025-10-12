@@ -3,15 +3,18 @@ import { ShopContext } from "../context/ShopContext"
 import Title from "../UiComponents/Title"
 import axios from "axios"
 import { Server_Url } from "@/config"
+import Loader from "../UiComponents/Loader"
 
 
 const Orders = () => {
   const {token, currency} = useContext(ShopContext)
 
   const [orders, setOrders] = useState<any[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const OrderDetails =async()=>{
      try {
+      setIsLoading(true)
       if(!token){
         return null;
       }
@@ -30,9 +33,11 @@ const Orders = () => {
         })
         // console.log(AllOrdersItems)
         setOrders(AllOrdersItems.reverse())
+        setIsLoading(false)
       }
      } catch (error) {
       console.log(error)
+      setIsLoading(false)
      }
   }
 
@@ -73,6 +78,7 @@ const Orders = () => {
               ))
              }
         </div>
+        {isLoading && <Loader/>}
     </div>
   )
 }
