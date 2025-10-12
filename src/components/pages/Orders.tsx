@@ -18,18 +18,17 @@ const Orders = () => {
       const response = await axios.get(`${Server_Url}/order/userorders`,{headers:{token}})
       if(response.data.success){
         let AllOrdersItems: any[] = []
-        console.log(response)
+        // console.log(response)
         response.data.orders.map((order:any)=>{
           order.items.map((item:any)=>{
             item['status'] = order.status
             item['payment'] = order.payment
             item['paymentMethod'] = order.paymentMethod
             item['date'] = order.date
-            item['price'] = order.price
-            AllOrdersItems.push(item)
+            // AllOrdersItems.push(item)
           })
         })
-        console.log(AllOrdersItems)
+        // console.log(AllOrdersItems)
         setOrders(AllOrdersItems.reverse())
       }
      } catch (error) {
