@@ -25,7 +25,7 @@ const Orders = () => {
             item['payment'] = order.payment
             item['paymentMethod'] = order.paymentMethod
             item['date'] = order.date
-            // AllOrdersItems.push(item)
+            AllOrdersItems.push(item)
           })
         })
         // console.log(AllOrdersItems)
