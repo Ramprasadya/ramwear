@@ -22,7 +22,7 @@ const Navbar = () => {
 
   return (
     <div className='flex items-center justify-between py-5 font-medium' >
-      <NavLink to="/" ><img src={Logo} alt='Wear' className='w-25' /></NavLink>
+      <NavLink to="/" ><img src={Logo} alt='Wear' className='w-25 bg-white' /></NavLink>
       <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
         <NavLink to="/" className="flex flex-col items-center gap-1" >
           <p>Home</p>
@@ -58,7 +58,7 @@ const Navbar = () => {
 
               <div className="group-hover:block hidden absolute dropdown-menu -right-[50px] pt-2 " >
                 <div className="flex flex-col gap-2 w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded  ">
-                  <p onClick={() => navigate("/profile")} className="cursor-pointer hover:text-black" >My Profile</p>
+                  {token && <p onClick={() => navigate("/profile")} className="cursor-pointer hover:text-black" >My Profile</p> }
                   <p onClick={() => navigate("/orders")} className="cursor-pointer hover:text-black" >Orders</p>
                   <p onClick={Logout} className="cursor-pointer hover:text-black" >Logout</p>
                 </div>
