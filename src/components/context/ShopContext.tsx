@@ -92,7 +92,7 @@ const ShopContextProvider = (props: any) => {
       }
     }
   };
-
+ 
   const getCartCount = () => {
     let totalCount = 0;
     for (const items in cartItems) {
