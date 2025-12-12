@@ -73,7 +73,7 @@ const Navbar = () => {
         <Menu onClick={() => setvisible(true)} className=" w-5 cursor-pointer sm:hidden" />
       </div>
       {/* Mobile Navabr  */}
-      <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`} >
+      <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-[70%]' : 'w-0'}`} >
         <div className="flex flex-col text-gray-700" >
           <div onClick={() => setvisible(false)} className="flex items-center gap-2 p-3" >
             <ChevronDown className="h-4 rotate-90 mt-[3px]" />
