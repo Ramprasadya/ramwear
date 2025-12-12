@@ -32,8 +32,8 @@ const Profile = () => {
     <div className="p-6 border-b border-t mt-6" >
       <div className="flex flex-col justify-between items-center gap-y-2 sm:gap-y-4" >
          <img src={profile} alt="Profile" className="rounded-full h-[150px] w-[150px] " />
-         <h1 className=" text-sm sm:text-xl" >{userData.name}</h1>
-         <p className=" text-sm sm:text-xl">{userData.email}</p>
+         <h1 className=" text-sm sm:text-xl" >{userData?.name}</h1>
+         <p className=" text-sm sm:text-xl">{userData?.email}</p>
       </div>
     </div>
   )

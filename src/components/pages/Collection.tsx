@@ -101,7 +101,7 @@ const Collection = () => {
           } sm:block `}
         >
           <p className="mb-3 text-sm font-medium">Categories</p>
-          <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
+          <div className="flex flex-col gap-2 text-sm font-light text-[#FFFF]">
             <p className="flex gap-2">
               <input
                 className="w-3"
@@ -138,7 +138,7 @@ const Collection = () => {
           } sm:block `}
         >
           <p className="mb-3 text-sm font-medium">Type</p>
-          <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
+          <div className="flex flex-col gap-2 text-sm font-light text-[#FFFF]">
             <p className="flex gap-2">
               <input onChange={toggleSubCategory} className="w-3" type="checkbox" value={"Topwear"} />
               Topwear
@@ -162,10 +162,10 @@ const Collection = () => {
         >
           <Title text1="All" text2="Collections" />
           {/* Product Sort  */}
-          <select onChange={(e:any)=>setSortType(e.target.value)} className="border-2 border-gray-300 text-sm px-2">
-            <option value="relavent">Sort by : Relavent</option>
-            <option value="low-high">Sort by : Low to High</option>
-            <option value="high-low"> Sort by : High to Low</option>
+          <select onChange={(e:any)=>setSortType(e.target.value)} className="border-2 border-gray-300 text-sm px-2 backdrop-blur-xl">
+            <option className="backdrop-blur-xl bg-[#042929] hover:bg-sky-700" value="relavent">Sort by : Relavent</option>
+            <option className="backdrop-blur-xl bg-[#042929] hover:bg-sky-700" value="low-high">Sort by : Low to High</option>
+            <option className="backdrop-blur-xl bg-[#042929] hover:bg-sky-700" value="high-low"> Sort by : High to Low</option>
           </select>
         </div>
         {/* Map producvts */}

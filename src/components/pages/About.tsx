@@ -9,10 +9,10 @@ const About = () => {
       <Title text1="About" text2="Us"  />
       <div className="my-10 flex flex-col md:flex-row gap-16" >
         <img className="w-full md:max-w-[450px]" src={assets.about_img} alt="" />
-        <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600" >
+        <div className="flex flex-col justify-center gap-6 md:w-2/4 text-[#FFFF]" >
           <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae facilis iure deleniti perspiciatis rerum cum porro inventore quidem modi rem.</p>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro qui dolorum eos voluptatibus, incidunt temporibus voluptas necessitatibus asperiores voluptatem officiis facilis. Accusantium quaerat architecto nisi nostrum sint qui beatae laboriosam.</p>
-          <b className="text-gray-800">Our Mission</b>
+          <b className="text-[#FFFF]">Our Mission</b>
           <p>At Wear, we believe fashion should be more than just what you wear—it should be an expression of who you are. Our mission is to make style accessible, sustainable, and inspiring for everyone. We’re here to bring you carefully curated pieces that blend comfort, quality, and individuality, so you can look good, feel confident, and make your mark—every day.</p>
         </div>
       </div>

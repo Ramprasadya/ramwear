@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
         <div>
           <img src={Logo} className="mb-5 w-25" alt="" />
-          <p className="w-full md:w-2/3 text-gray-600 ">
+          <p className="w-full md:w-2/3 text-[#FFFF] ">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
             alias quam repudiandae?
           </p>
@@ -15,7 +15,7 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-4">Company</p>
           <ul
-            className="flex flex-col gap-1 text-gray-600
+            className="flex flex-col gap-1 text-[#FFFF]
              "
           >
             <li>
@@ -35,7 +35,7 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5">Get in touch</p>
           <ul
-            className="flex flex-col gap-1 text-gray-600
+            className="flex flex-col gap-1 text-[#FFFF]
              "
           >
             <li>

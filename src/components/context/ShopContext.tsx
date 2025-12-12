@@ -39,7 +39,7 @@ const ShopContextProvider = (props: any) => {
           // console.log(response.data.products);  
           setProducts(response.data?.products)
         }else{
-          toast.error(response.data.message)
+          console.log(response.data.message)
         }
      } catch (error) {
        console.log(error);
@@ -52,7 +52,7 @@ const ShopContextProvider = (props: any) => {
        if(response.data.success){
         setCartItems(response.data.cartData)
        }else{
-        toast.error(response.data.message)
+        console.log(response.data.message)
        }
     } catch (error) {
       console.log(error);

@@ -4,6 +4,12 @@
 
 @custom-variant dark (&:is(.dark *));
 
+body{
+  /* background-color: #042929; */
+  background: linear-gradient(140deg, #042929 0%, #031f1f 40%, #065353 100%);
+  color:  white !important;
+}
+
 a.active hr{
     display: block;
 }

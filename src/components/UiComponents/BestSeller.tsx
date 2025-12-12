@@ -23,7 +23,7 @@ const BestSeller = () => {
     <div className='my-10' >
       <div className='text-center text-3xl py-8' >
         <Title text1="Best" text2="Sellers"  />
-            <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-gray-600' >
+            <p className='w-3/4 m-auto text-xs sm:text-sm md:text-base text-[#FFFF]' >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, voluptatibus suscipit! Praesentium!
             </p>
       </div>
